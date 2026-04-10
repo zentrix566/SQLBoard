@@ -12,11 +12,14 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api/operation")
-@RequiredArgsConstructor
 @CrossOrigin
 public class SavedOperationController {
 
     private final SavedOperationService savedOperationService;
+
+    public SavedOperationController(SavedOperationService savedOperationService) {
+        this.savedOperationService = savedOperationService;
+    }
 
     /**
      * 获取连接下的所有保存操作

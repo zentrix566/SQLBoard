@@ -15,13 +15,20 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api/connection")
-@RequiredArgsConstructor
 @CrossOrigin
 public class DatabaseConnectionController {
 
     private final DatabaseConnectionService connectionService;
     private final DatabaseConnectionMapper connectionMapper;
     private final SqlExecutionService sqlExecutionService;
+
+    public DatabaseConnectionController(DatabaseConnectionService connectionService,
+                                        DatabaseConnectionMapper connectionMapper,
+                                        SqlExecutionService sqlExecutionService) {
+        this.connectionService = connectionService;
+        this.connectionMapper = connectionMapper;
+        this.sqlExecutionService = sqlExecutionService;
+    }
 
     /**
      * 获取所有连接列表
